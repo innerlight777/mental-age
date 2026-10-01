@@ -1,416 +1,66 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0d0d11"><title>七宗罪 × 七美德｜灵魂暗影与光面的双面镜</title>
-<script src="https://cdn.tailwindcss.com"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"><script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#fff7fb">
+<title>心理年龄测试｜看看你的灵魂几岁了？</title>
+<script src="https://cdn.tailwindcss.com"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-:root{color-scheme:dark;--gold:#d4af37;--gold2:#e6c280;--ink:#0d0d11;--muted:#aaa49b}*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% 0%,rgba(92,34,27,.20),transparent 42%),radial-gradient(ellipse at 90% 80%,rgba(112,76,28,.08),transparent 35%),linear-gradient(145deg,#0d0d11,#16161e 60%,#101014);color:#f3f0e9;font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;min-height:100vh}button{font:inherit}.serif{font-family:Georgia,"Songti SC",serif}.glass{background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));border:1px solid rgba(212,175,55,.16);backdrop-filter:blur(16px);box-shadow:0 18px 60px rgba(0,0,0,.2)}.gold{color:var(--gold2)}.muted{color:var(--muted)}.eyebrow{letter-spacing:.24em;text-transform:uppercase;font-size:.69rem;color:#c3a966}.btn{min-height:48px;padding:.8rem 1.25rem;border-radius:999px;border:1px solid rgba(212,175,55,.34);transition:.25s ease;cursor:pointer}.btn:focus-visible,.option:focus-visible,summary:focus-visible{outline:2px solid var(--gold2);outline-offset:3px}.btn-primary{background:linear-gradient(120deg,#c49a37,#e6c280);color:#17130b;font-weight:700;box-shadow:0 0 30px rgba(212,175,55,.16)}.btn-primary:hover{transform:translateY(-2px);box-shadow:0 0 38px rgba(212,175,55,.28)}.btn-quiet{color:#eee8da;background:rgba(255,255,255,.035)}.btn-quiet:hover{background:rgba(255,255,255,.08)}.pulse{animation:pulse 3s ease-in-out infinite}@keyframes pulse{50%{box-shadow:0 0 42px rgba(212,175,55,.32)}}.view{display:none;animation:fade .45s ease}.view.active{display:block}@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}.topic{min-height:88px}.option{width:100%;text-align:left;padding:1rem 1.1rem;min-height:68px;border:1px solid rgba(255,255,255,.10);border-radius:16px;background:rgba(255,255,255,.025);color:#eee9df;cursor:pointer;transition:.2s}.option:hover{border-color:rgba(212,175,55,.48);background:rgba(212,175,55,.055)}.option.selected{border-color:rgba(230,194,128,.78);background:rgba(212,175,55,.11);box-shadow:inset 0 0 0 1px rgba(212,175,55,.12)}.progress-track{height:4px;background:rgba(255,255,255,.10);border-radius:9px;overflow:hidden}.progress-fill{height:100%;background:linear-gradient(90deg,#a77e28,#e6c280);transition:width .35s}.detail{border-bottom:1px solid rgba(255,255,255,.08)}summary{cursor:pointer;list-style:none}summary::-webkit-details-marker{display:none}.tag{border:1px solid rgba(212,175,55,.2);border-radius:99px;padding:.28rem .65rem;color:#d9c58f;font-size:.75rem}.chart-heading{display:flex;align-items:center;justify-content:center;gap:1.1rem;text-align:center}.chart-rule{height:1px;width:min(12vw,72px);background:linear-gradient(90deg,transparent,rgba(212,175,55,.65))}.chart-rule:last-child{transform:rotate(180deg)}.chart-tabs{display:flex;max-width:560px;margin-left:auto;margin-right:auto;padding:5px;border:1px solid rgba(212,175,55,.22);border-radius:999px;background:rgba(0,0,0,.28)}.chart-tab{flex:1;min-height:44px;border:0;border-radius:999px;background:transparent;color:#a9a092;cursor:pointer;font-size:.88rem;transition:.2s}.chart-tab.active{background:linear-gradient(110deg,rgba(180,140,63,.75),rgba(215,180,111,.72));color:#1c170d;box-shadow:0 2px 16px rgba(212,175,55,.15)}.chart-tab:focus-visible{outline:2px solid #e6c280;outline-offset:2px}.chart-legend{display:flex;flex-wrap:wrap;justify-content:center;gap:1.4rem;margin-top:1.2rem;color:#d1c5ac;font-size:.9rem}.legend-line{display:inline-block;vertical-align:middle;width:28px;height:4px;border-radius:4px;margin-right:.55rem}.virtue-line{background:#b7d987}.sin-line{background:#d66e75}.chart-rank-pill{display:flex;align-items:center;justify-content:center;gap:.45rem;border:1px solid rgba(212,175,55,.2);border-radius:12px;padding:.7rem .5rem;color:#c9bea8;font-family:Georgia,"Songti SC",serif;font-size:.88rem;background:rgba(0,0,0,.2)}.chart-rank-pill b{font-weight:500;color:#e6c280}.report-heading{text-align:center;padding:1rem 0}.report-card{background:linear-gradient(145deg,rgba(20,14,10,.72),rgba(8,7,7,.68));border:1px solid rgba(212,175,55,.18);padding:1.2rem 1.35rem}.analysis-panel{background:linear-gradient(145deg,rgba(29,20,13,.82),rgba(10,9,8,.76));border:1px solid rgba(204,165,92,.25);border-radius:20px;padding:1.25rem 1.4rem}.signature{display:inline-block;border:1px solid rgba(212,175,55,.38);padding:.55rem .85rem;color:#e0ba3b;letter-spacing:.08em;font-size:.85rem}.report-card.sin{border-left:3px solid #b94343}.report-card.virtue{border-left:3px solid #8fae75}.trace-box{border:1px solid rgba(230,194,128,.16);background:rgba(255,255,255,.025);border-radius:16px;padding:1rem}.bar-track{height:8px;background:rgba(255,255,255,.08);border-radius:99px;overflow:hidden}.bar-fill{height:100%;border-radius:99px}.trace-row{padding:.7rem 0;border-bottom:1px dashed rgba(255,255,255,.09)}.trace-row:last-child{border-bottom:0}.toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,20px);opacity:0;pointer-events:none;background:#e6c280;color:#16130c;padding:.75rem 1.1rem;border-radius:999px;transition:.25s;z-index:20;font-size:.9rem}.toast.show{opacity:1;transform:translate(-50%,0)}
-@media(max-width:640px){.chart-heading{gap:.45rem}.chart-heading h3{font-size:1.4rem}.chart-tabs{gap:2px}.chart-tab{font-size:.72rem;padding:0 .45rem;min-height:40px}.chart-legend{gap:.8rem;font-size:.75rem}.chart-rank-pill{font-size:.74rem;padding:.6rem .35rem}.mobile-pad{padding:1.2rem!important}.hero-title{font-size:2.5rem!important}.topic{min-height:76px}}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
-</style></head><body><main class="max-w-5xl mx-auto px-5 py-8 md:py-14">
-<header class="flex items-center justify-between mb-12"><div class="flex items-center gap-3"><span class="w-9 h-9 rounded-full border border-amber-200/30 grid place-items-center gold"><i class="fa-regular fa-moon"></i></span><span class="text-sm tracking-[.15em] text-stone-300">INNER MIRROR</span></div><span class="eyebrow hidden sm:inline">A quiet act of self-reflection</span></header>
-<section id="intro" class="view active"><div class="text-center max-w-3xl mx-auto pt-4 md:pt-10"><p class="eyebrow mb-5">七重暗影 · 七种光</p><h1 class="serif hero-title text-5xl md:text-7xl leading-tight">七宗罪 <span class="gold">×</span> 七美德</h1><p class="serif text-xl md:text-2xl text-stone-300 mt-4">灵魂暗影与光面的双面镜</p><div class="w-16 h-px bg-amber-300/50 mx-auto my-8"></div><p class="text-stone-300 leading-8 max-w-2xl mx-auto">包含 28 道生活情境题，预计耗时约 5 分钟。请按真实第一反应作答，没有标准答案，也不必选“看起来最好”的那个。</p></div>
-<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 mt-10" id="topicGrid"></div>
-<div class="glass rounded-3xl p-6 md:p-8 mt-8 text-center"><p class="text-sm text-stone-400 leading-7">本测试为自我反思与自我觉察体验，并非心理诊断、临床评估或道德评判。</p><button class="btn btn-primary pulse mt-5 px-8" onclick="startTest()">开始照见 <i class="fa-solid fa-arrow-right ml-2"></i></button></div><p class="text-center text-xs text-stone-600 mt-8">请把每个答案当作当下的线索，而不是给自己的定义。</p></section>
-<section id="quiz" class="view"><div class="max-w-3xl mx-auto"><div class="flex flex-wrap items-end justify-between gap-4 mb-5"><div><p id="qNumber" class="eyebrow">QUESTION 01 / 28</p><p id="qDim" class="text-sm text-stone-400 mt-2"></p></div><span id="percent" class="text-sm gold">4%</span></div><div class="progress-track mb-8"><div id="progress" class="progress-fill" style="width:4%"></div></div><article class="glass rounded-3xl p-6 md:p-10 mobile-pad"><p class="eyebrow mb-4" id="qTitle"></p><h2 id="qText" class="serif text-2xl md:text-3xl leading-relaxed"></h2><div id="options" class="grid gap-3 mt-8"></div></article><div class="flex justify-start gap-3 mt-6"><button id="prevBtn" class="btn btn-quiet" onclick="move(-1)"><i class="fa-solid fa-arrow-left mr-2"></i>上一题</button><span class="self-center text-xs text-stone-500 ml-2">选择后自动进入下一题</span></div></div></section>
-<section id="result" class="view"><div class="max-w-4xl mx-auto"><div class="text-center mb-9"><p class="eyebrow mb-3">YOUR INNER MIRROR</p><h1 class="serif text-4xl md:text-5xl">灵魂档案</h1><p class="text-stone-400 mt-3">这是一张此刻的地图，而非对你的定论。</p></div><article class="glass rounded-3xl p-7 md:p-10 text-center"><span class="tag">灵魂勋章 · 此刻画像</span><h2 id="medal" class="serif text-3xl md:text-4xl gold mt-5"></h2><p id="medalText" class="text-stone-300 leading-8 max-w-2xl mx-auto mt-4"></p></article>
-<section class="mt-8"><div class="report-heading"><h3 class="serif text-3xl gold">灵魂徽章</h3><p class="eyebrow mt-2">SOUL EMBLEM · 本次回答中最鲜明的印记</p></div><div id="ranked" class="grid gap-3 mt-5"></div></section>
-<section class="glass rounded-3xl p-5 md:p-8 mt-6"><div class="chart-heading"><span class="chart-rule"></span><div><h3 class="serif text-3xl gold">七宗罪 × 七美德图谱</h3><p class="eyebrow mt-2">SHADOW · LIGHT MAP</p></div><span class="chart-rule"></span></div><div id="chartRank" class="grid grid-cols-2 gap-2 mt-5"></div><div class="chart-tabs mt-5" role="tablist" aria-label="图谱显示内容"><button class="chart-tab active" role="tab" aria-selected="true" data-mode="all" onclick="setChartMode('all',this)">综合图谱</button><button class="chart-tab" role="tab" aria-selected="false" data-mode="sin" onclick="setChartMode('sin',this)">仅七宗罪</button><button class="chart-tab" role="tab" aria-selected="false" data-mode="virtue" onclick="setChartMode('virtue',this)">仅七美德</button></div><div class="chart-legend"><span><i class="legend-line virtue-line"></i>七美德 · 光面力量</span><span><i class="legend-line sin-line"></i>七宗罪 · 暗面驱力</span></div><p class="text-xs text-stone-500 text-center mt-3">四道情境题汇总 · 0–100 · 反映本次回答倾向，不是人格测量或道德评分</p><div class="max-w-3xl mx-auto mt-2"><canvas id="radar" aria-label="七宗罪与七美德双侧雷达图" role="img"></canvas><p id="chartFallback" class="text-sm text-stone-500 text-center mt-4" hidden>图表暂时不可用，详细分析仍可正常查看。</p></div></section>
-<section class="mt-10"><div class="report-heading"><h3 class="serif text-3xl gold">七罪详单</h3><p class="eyebrow mt-2">SEVEN DEADLY SINS</p></div><div id="sinDetails" class="grid gap-5 mt-5"></div></section>
-<section class="mt-12"><div class="report-heading"><h3 class="serif text-3xl gold">七德详单</h3><p class="eyebrow mt-2">SEVEN VIRTUES</p></div><div id="virtueDetails" class="grid gap-5 mt-5"></div></section>
-<section class="mt-8"><div class="report-heading"><h3 class="serif text-3xl gold">专属洞察</h3><p class="eyebrow mt-2">PERSONAL INSIGHT · 把七个维度连成一幅图</p></div><div id="insight" class="grid gap-4 mt-5"></div></section>
-<section class="mt-8"><div class="report-heading"><h3 class="serif text-3xl gold">七维撕裂地图</h3><p class="eyebrow mt-2">SHADOW · LIGHT CONTRAST</p></div><p class="text-sm text-stone-400 mt-3 leading-7">把同一维度的暗影线索与美德资源并置。差距较大，表示本次回答更常借助其中一侧；差距较小，表示两侧都可能调动。差距不是冲突程度的诊断。</p><div id="tensions" class="grid gap-4 mt-5"></div></section>
-<section class="glass rounded-3xl p-5 md:p-8 mt-8"><div class="report-heading"><h3 class="serif text-3xl gold">触发因素清单</h3><p class="eyebrow mt-2">TRIGGER MAP · 哪些时刻更容易拉响警报</p></div><p class="text-sm text-stone-400 mt-4">以下按维度归纳暗影分值较高的情境主题，不逐题复述答案；它们是值得观察的共同线索，不意味着你总会如此反应。</p><div id="triggerList" class="grid gap-3 mt-4"></div></section>
-<section class="glass rounded-3xl p-6 md:p-8 mt-8"><div class="report-heading"><h3 class="serif text-3xl gold">平衡建议</h3><p class="eyebrow mt-2">BALANCE PATH · 小而具体的尝试</p></div><div id="advice" class="grid gap-3 mt-5"></div><p class="text-center text-stone-400 italic mt-7">“我可以看见自己的需要，也可以为回应它选择更温柔的方式。”</p></section>
-<div class="flex flex-wrap justify-center gap-3 mt-8"><button class="btn btn-quiet" onclick="restart()"><i class="fa-solid fa-rotate-left mr-2"></i>重新测试</button><button class="btn btn-quiet" onclick="copyResult()"><i class="fa-regular fa-copy mr-2"></i>复制完整文本结果</button><button class="btn btn-primary" onclick="saveResult()"><i class="fa-regular fa-floppy-disk mr-2"></i>保存结果</button></div><p class="text-center text-xs text-stone-600 mt-6">结果由你的情境选择汇总生成，仅供自我觉察与日常反思。</p></div></section>
-</main><div id="toast" class="toast" role="status" aria-live="polite"></div>
+:root{color-scheme:light}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 10% 10%,#ffe0ec 0,transparent 38%),radial-gradient(ellipse at 88% 16%,#dff5ff 0,transparent 38%),radial-gradient(ellipse at 65% 95%,#e1ffed 0,transparent 42%),linear-gradient(135deg,#fff9e9,#fff 55%,#f2edff);color:#332f40;font-family:ui-rounded,"Nunito",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.glass{background:rgba(255,255,255,.82);backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.9);box-shadow:0 18px 55px rgba(138,91,133,.12)}.screen{animation:appear .42s ease both}@keyframes appear{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}.option{min-height:64px;transition:transform .18s,box-shadow .18s,border-color .18s}.option:hover{transform:translateY(-2px) scale(1.01);box-shadow:0 10px 25px rgba(220,106,143,.12)}.option:active,.btn:active{transform:scale(.98)}.option.selected{border-color:#ff816f;background:#fff4f0;box-shadow:0 0 0 3px rgba(255,129,111,.12)}.progress-fill{background:linear-gradient(90deg,#ff8a75,#ff70a6,#aa82f7);transition:width .38s ease;position:relative;overflow:hidden}.progress-fill:after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,transparent,rgba(255,255,255,.5),transparent);animation:shine 2s infinite}@keyframes shine{to{transform:translateX(100%)}}.pulse{animation:pulse 2.3s infinite}@keyframes pulse{50%{box-shadow:0 0 0 10px rgba(255,112,166,0)}}@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:.01ms!important}}
+</style></head>
+<body class="px-4 py-6 sm:py-10">
+<main class="mx-auto w-full max-w-3xl">
+<header class="mb-6 flex items-center justify-center gap-2 text-sm font-bold tracking-wide text-purple-600"><span class="flex h-9 w-9 items-center justify-center rounded-2xl bg-white/80 shadow-sm">✦</span> 心灵实验室 <span class="text-pink-400">·</span> 趣味小测试</header>
+<section id="start" class="screen glass relative overflow-hidden rounded-[2rem] px-6 py-10 text-center sm:px-12 sm:py-14">
+<div class="absolute -right-8 -top-8 h-32 w-32 rounded-full bg-pink-200/50 blur-2xl"></div><div class="absolute -bottom-12 -left-8 h-40 w-40 rounded-full bg-sky-200/50 blur-2xl"></div>
+<div class="relative"><div class="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-[1.7rem] bg-gradient-to-br from-orange-200 via-pink-200 to-purple-200 text-4xl shadow-lg shadow-pink-100">🪄</div><p class="mb-2 text-sm font-extrabold uppercase tracking-[.22em] text-pink-500">A little soul check-in</p><h1 class="text-4xl font-black leading-tight text-slate-800 sm:text-5xl">心理年龄测试</h1><p class="mt-3 text-xl font-bold text-purple-600">看看你的灵魂几岁了？✨</p><p class="mx-auto mt-5 max-w-lg leading-7 text-slate-600">凭第一反应选，别纠结太久。每题只选一个答案，最后把分数加起来。</p>
+<div class="my-7 flex flex-wrap justify-center gap-2 text-xs font-bold text-slate-600 sm:gap-3"><span class="rounded-full bg-white/80 px-4 py-2.5">⏱ 20 道趣味情境题</span><span class="rounded-full bg-white/80 px-4 py-2.5">⚡ 耗时约 3 分钟</span><span class="rounded-full bg-white/80 px-4 py-2.5">🎉 已有 58,200+ 灵魂参与测验</span></div>
+<button id="startBtn" class="btn pulse min-h-12 rounded-2xl bg-gradient-to-r from-[#ff8a69] via-[#ff6f9e] to-[#aa7cf3] px-8 py-4 text-base font-extrabold text-white shadow-lg shadow-pink-200 transition hover:-translate-y-0.5">开启灵魂测验 <i class="fa-solid fa-arrow-right ml-2"></i></button><p class="mt-5 text-xs text-slate-400">是一道娱乐向小测试，不是专业心理评估哦。</p></div></section>
+<section id="quiz" class="screen hidden"><div class="glass mb-4 rounded-3xl p-5 sm:p-6"><div class="mb-3 flex items-center justify-between"><span id="qCount" class="text-xs font-black tracking-[.12em] text-purple-700">QUESTION 01 / 20</span><span id="percent" class="text-sm font-extrabold text-pink-500">5%</span></div><div class="h-3 overflow-hidden rounded-full bg-purple-100"><div id="progress" class="progress-fill h-full rounded-full" style="width:5%"></div></div></div><div class="glass rounded-[2rem] p-5 sm:p-9"><div class="mb-5 flex items-center gap-3"><span id="qEmoji" class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-pink-100 to-purple-100 text-2xl">🌷</span><span class="text-xs font-extrabold uppercase tracking-widest text-slate-400">小小情境题</span></div><h2 id="question" class="mb-6 text-xl font-extrabold leading-relaxed text-slate-800 sm:text-2xl"></h2><div id="options" class="space-y-3"></div><p id="hint" class="mt-3 min-h-5 text-center text-xs text-rose-500" aria-live="polite"></p><div class="mt-3 flex items-center justify-between gap-3"><button id="prevBtn" class="btn min-h-11 rounded-xl px-4 font-bold text-slate-500 transition hover:bg-white/70"><i class="fa-solid fa-arrow-left mr-2"></i>上一题</button><button id="nextBtn" class="btn min-h-12 rounded-xl bg-slate-200 px-6 font-extrabold text-slate-400 transition disabled:cursor-not-allowed" disabled>下一题 <i class="fa-solid fa-arrow-right ml-2"></i></button></div></div></section>
+<section id="result" class="screen hidden"><div class="glass overflow-hidden rounded-[2rem]"><div class="bg-gradient-to-r from-[#ff9b78] via-[#ff77a7] to-[#a682ee] px-6 py-8 text-center text-white sm:py-10"><div class="text-sm font-bold tracking-[.18em] text-white/85">你的灵魂年龄是</div><div id="age" class="my-2 text-6xl font-black drop-shadow-sm sm:text-7xl"></div><h1 id="resultTitle" class="text-xl font-black leading-relaxed sm:text-2xl"></h1><p class="mt-3 text-sm text-white/85">这是一张关于当下心情的小小快照</p></div><div class="p-5 sm:p-9"><div id="tags" class="mb-7 flex flex-wrap justify-center gap-2"></div><div class="grid gap-4 sm:grid-cols-2"><article class="rounded-3xl bg-[#fff8ed] p-5"><h2 class="mb-2 font-extrabold text-orange-600">🌟 性格特点</h2><p id="feature" class="text-sm leading-7 text-slate-600"></p></article><article class="rounded-3xl bg-[#f4f0ff] p-5"><h2 class="mb-2 font-extrabold text-purple-600">💡 心理状态解读</h2><p id="analysis" class="text-sm leading-7 text-slate-600"></p></article></div><div class="my-5 rounded-3xl border border-pink-100 bg-gradient-to-br from-pink-50 to-amber-50 p-5 text-center"><div class="mb-2 text-xs font-extrabold tracking-widest text-pink-500">给你的专属金句</div><p id="quote" class="text-lg font-extrabold leading-relaxed text-slate-700"></p><button id="copyQuote" class="btn mt-4 min-h-11 rounded-xl bg-white px-4 text-sm font-bold text-pink-600 shadow-sm transition hover:bg-pink-50"><i class="fa-regular fa-copy mr-2"></i>一键复制金句</button></div><div class="flex flex-col justify-center gap-3 sm:flex-row"><button id="copyResult" class="btn min-h-12 rounded-2xl bg-gradient-to-r from-[#ff8a69] to-[#ed6ca6] px-5 font-extrabold text-white shadow-md transition hover:-translate-y-0.5"><i class="fa-solid fa-share-nodes mr-2"></i>复制完整结果</button><button id="restart" class="btn min-h-12 rounded-2xl border border-purple-100 bg-white px-5 font-extrabold text-purple-600 transition hover:bg-purple-50"><i class="fa-solid fa-rotate-right mr-2"></i>重新测试</button></div><p class="mt-5 text-center text-xs leading-6 text-slate-400">结果仅供娱乐与自我觉察，不构成专业心理评估。觉得有趣的话，分享给朋友一起测测吧 ✨</p></div></div></section>
+<footer class="mt-6 text-center text-xs text-slate-400">Made with a little curiosity and kindness <span class="text-pink-400">♥</span></footer></main>
+<div id="toast" class="pointer-events-none fixed bottom-6 left-1/2 -translate-x-1/2 rounded-full bg-slate-800 px-5 py-3 text-sm font-bold text-white opacity-0 shadow-xl transition-opacity" role="status">已复制</div>
 <script>
 const questionsData = [
-  // 傲慢 × 真诚 (Q1-Q4)
-  {
-    dim: "傲慢 × 真诚",
-    title: "QUESTION 01 · 情境照见",
-    text: "工作中，你的方案被同事指出一个明显漏洞，其他人也都听见了。你会：",
-    options: [
-      { text: "A. 先听完对方的意见，确认问题后再讨论怎么修改", shadow: 1, virtue: 3 },
-      { text: "B. 解释自己当时为什么这么设计，避免别人误会", shadow: 2, virtue: 1 },
-      { text: "C. 表面接受建议，心里觉得对方是在挑刺", shadow: 3, virtue: 0 },
-      { text: "D. 承认自己漏看了，直接提出补救办法", shadow: 0, virtue: 3 }
-    ]
-  },
-  {
-    dim: "傲慢 × 真诚",
-    title: "QUESTION 02 · 情境照见",
-    text: "朋友问你最近过得怎么样，但你其实正被一件事困扰。你会：",
-    options: [
-      { text: "A. 笑着说一切都好，不想让别人看见自己的脆弱", shadow: 3, virtue: 0 },
-      { text: "B. 简单说说近况，但把最难受的部分藏起来", shadow: 2, virtue: 1 },
-      { text: "C. 坦诚告诉朋友自己最近不太好，也说说需要什么", shadow: 0, virtue: 3 },
-      { text: "D. 把话题转回朋友身上，避免谈到自己", shadow: 2, virtue: 1 }
-    ]
-  },
-  {
-    dim: "傲慢 × 真诚",
-    title: "QUESTION 03 · 情境照见",
-    text: "你参加一个自己不熟悉的讨论，大家谈得很热烈，突然有人问你的看法。你会：",
-    options: [
-      { text: "A. 先表达一个确定的观点，让自己显得有把握", shadow: 3, virtue: 0 },
-      { text: "B. 坦白说自己了解不多，再提出真正想问的问题", shadow: 0, virtue: 3 },
-      { text: "C. 附和现场最有影响力的人的看法", shadow: 2, virtue: 1 },
-      { text: "D. 尽量把话题带到自己熟悉的领域", shadow: 2, virtue: 1 }
-    ]
-  },
-  {
-    dim: "傲慢 × 真诚",
-    title: "QUESTION 04 · 情境照见",
-    text: "你答应帮忙的事情没有按时完成，对方来询问进度。你会：",
-    options: [
-      { text: "A. 先说明自己最近有多忙，希望对方理解", shadow: 2, virtue: 1 },
-      { text: "B. 承认没按时完成，并告诉对方接下来会怎么处理", shadow: 0, virtue: 3 },
-      { text: "C. 说事情差不多完成了，争取多一点时间", shadow: 2, virtue: 0 },
-      { text: "D. 觉得对方催得太急，语气也跟着变硬", shadow: 3, virtue: 0 }
-    ]
-  },
-
-  // 嫉妒 × 勇敢 (Q5-Q8)
-  {
-    dim: "嫉妒 × 勇敢",
-    title: "QUESTION 05 · 情境照见",
-    text: "你的朋友告诉你，她辞职创业并拿到了第一笔投资。你会：",
-    options: [
-      { text: "A. 真心替她高兴，接着好奇地问她怎么迈出第一步", shadow: 0, virtue: 3 },
-      { text: "B. 想起自己一直想做却没做的事，决定这周先试一小步", shadow: 1, virtue: 3 },
-      { text: "C. 嘴上祝贺她，心里觉得她只是运气好", shadow: 3, virtue: 0 },
-      { text: "D. 忍不住比较彼此的条件，觉得自己落后了", shadow: 2, virtue: 1 }
-    ]
-  },
-  {
-    dim: "嫉妒 × 勇敢",
-    title: "QUESTION 06 · 情境照见",
-    text: "你很想申请一个机会，但看到身边的人条件比你优秀许多。你会：",
-    options: [
-      { text: "A. 觉得自己大概不够格，干脆不申请", shadow: 2, virtue: 0 },
-      { text: "B. 先了解申请要求，再决定要补足哪些准备", shadow: 1, virtue: 2 },
-      { text: "C. 一边羡慕对方，一边暗自希望对方不要成功", shadow: 3, virtue: 0 },
-      { text: "D. 还是递交申请，即使结果未知，也愿意争取一次", shadow: 0, virtue: 3 }
-    ]
-  },
-  {
-    dim: "嫉妒 × 勇敢",
-    title: "QUESTION 07 · 情境照见",
-    text: "聚会时，大家一直称赞一位朋友最近的成就，却没人提起你的努力。你会：",
-    options: [
-      { text: "A. 直接把话题转到自己的成绩上", shadow: 2, virtue: 1 },
-      { text: "B. 为朋友感到高兴，之后再找合适的机会分享自己的近况", shadow: 0, virtue: 3 },
-      { text: "C. 觉得自己的付出不被重视，慢慢变得沉默", shadow: 2, virtue: 0 },
-      { text: "D. 表面参与谈话，心里不断比较谁更出色", shadow: 3, virtue: 0 }
-    ]
-  },
-  {
-    dim: "嫉妒 × 勇敢",
-    title: "QUESTION 08 · 情境照见",
-    text: "你发现自己一直羡慕一位同事的生活状态：她敢拒绝不喜欢的工作，也有自己的计划。你会：",
-    options: [
-      { text: "A. 觉得她有条件才敢这样，自己的情况不一样", shadow: 2, virtue: 0 },
-      { text: "B. 观察她是怎么做的，再找一件自己也能尝试的事", shadow: 0, virtue: 3 },
-      { text: "C. 继续想象如果自己也那样就好了，却迟迟不行动", shadow: 2, virtue: 1 },
-      { text: "D. 承认自己确实羡慕，也试着弄清楚自己真正想要什么", shadow: 1, virtue: 3 }
-    ]
-  },
-
-  // 暴怒 × 宽容 (Q9-Q12)
-  {
-    dim: "暴怒 × 宽容",
-    title: "QUESTION 09 · 情境照见",
-    text: "排队时，有人插到你前面，还装作没注意到你。你会：",
-    options: [
-      { text: "A. 立刻大声质问，让对方知道自己做错了", shadow: 3, virtue: 0 },
-      { text: "B. 忍住不说，但之后一路都在生气", shadow: 2, virtue: 0 },
-      { text: "C. 平静提醒对方后面还有人在排队", shadow: 0, virtue: 3 },
-      { text: "D. 先判断是不是误会，再决定要不要开口", shadow: 1, virtue: 2 }
-    ]
-  },
-  {
-    dim: "暴怒 × 宽容",
-    title: "QUESTION 10 · 情境照见",
-    text: "你把一件重要的事告诉朋友，对方却忘记了，还因此耽误了你的安排。你会：",
-    options: [
-      { text: "A. 直接告诉对方这件事让你很失望", shadow: 1, virtue: 2 },
-      { text: "B. 先发火，之后再想要不要解释自己的感受", shadow: 3, virtue: 0 },
-      { text: "C. 告诉对方发生了什么、影响了什么，并一起商量补救办法", shadow: 0, virtue: 3 },
-      { text: "D. 说“没关系”，但之后不再愿意把重要的事交给对方", shadow: 2, virtue: 1 }
-    ]
-  },
-  {
-    dim: "暴怒 × 宽容",
-    title: "QUESTION 11 · 情境照见",
-    text: "家人又提起一件你已经解释过很多次、也不想再谈的话题。你会：",
-    options: [
-      { text: "A. 马上打断对方，表示自己受够了", shadow: 3, virtue: 0 },
-      { text: "B. 先离开现场，等情绪平稳后再说明自己的界限", shadow: 1, virtue: 3 },
-      { text: "C. 忍着听完，回房间后越想越气", shadow: 2, virtue: 0 },
-      { text: "D. 换个说法解释一次，希望对方这次能听进去", shadow: 1, virtue: 2 }
-    ]
-  },
-  {
-    dim: "暴怒 × 宽容",
-    title: "QUESTION 12 · 情境照见",
-    text: "网上有人误解了你的发言，还留下了让你生气的评论。你会：",
-    options: [
-      { text: "A. 立刻回击，把对方的问题也一一指出来", shadow: 3, virtue: 0 },
-      { text: "B. 先判断这段交流有没有继续的必要，再决定是否回应", shadow: 1, virtue: 2 },
-      { text: "C. 不回复，但反复刷新页面，看对方有没有继续说", shadow: 2, virtue: 0 },
-      { text: "D. 用清楚的事实澄清误解，之后不再纠缠", shadow: 0, virtue: 3 }
-    ]
-  },
-
-  // 懒惰 × 勤奋 (Q13-Q16)
-  {
-    dim: "懒惰 × 勤奋",
-    title: "QUESTION 13 · 情境照见",
-    text: "你报名参加了一门很想学的课程，几周后发现进度落下不少。你会：",
-    options: [
-      { text: "A. 觉得既然落后了，不如等下次重新开始", shadow: 3, virtue: 0 },
-      { text: "B. 先挑最容易的一节补起，重新找回节奏", shadow: 1, virtue: 3 },
-      { text: "C. 一边担心落下，一边继续做更轻松的事情", shadow: 2, virtue: 0 },
-      { text: "D. 给自己安排固定时间，哪怕每天只学一点", shadow: 0, virtue: 3 }
-    ]
-  },
-  {
-    dim: "懒惰 × 勤奋",
-    title: "QUESTION 14 · 情境照见",
-    text: "你有一个重要但不紧急 Goal，已经拖了好几个月。今天晚上终于空出一小时。你会：",
-    options: [
-      { text: "A. 先休息一下，等有完整的一天再开始", shadow: 3, virtue: 0 },
-      { text: "B. 花十分钟列出第一步，并马上做一点", shadow: 0, virtue: 3 },
-      { text: "C. 想到要做的事情太多，索性先不碰", shadow: 2, virtue: 0 },
-      { text: "D. 先做一件最具体的小事，不要求今晚全部完成", shadow: 0, virtue: 3 }
-    ]
-  },
-  {
-    dim: "懒惰 × 勤奋",
-    title: "QUESTION 15 · 情境照见",
-    text: "你负责的团队任务中，有一部分重复又琐碎，但必须有人完成。你会：",
-    options: [
-      { text: "A. 希望别人先做，自己等更重要的部分", shadow: 2, virtue: 0 },
-      { text: "B. 把它拆成几段，安排时间逐步处理", shadow: 0, virtue: 3 },
-      { text: "C. 先做完必要部分，再检查有没有更省力的方式", shadow: 0, virtue: 3 },
-      { text: "D. 一想到这些琐事就烦，拖到最后再说", shadow: 3, virtue: 0 }
-    ]
-  },
-  {
-    dim: "懒惰 × 勤奋",
-    title: "QUESTION 16 · 情境照见",
-    text: "你给自己订了每周运动三次的计划，但这周已经错过两次。到了第三次的时间，你会：",
-    options: [
-      { text: "A. 觉得这周计划已经失败，干脆下周再开始", shadow: 3, virtue: 0 },
-      { text: "B. 按原计划完成一次，即使时间短一些也算开始", shadow: 0, virtue: 3 },
-      { text: "C. 责怪自己不够自律，但还是继续待在家里", shadow: 2, virtue: 0 },
-      { text: "D. 调整成更容易坚持的安排，比如散步二十分钟", shadow: 1, virtue: 3 }
-    ]
-  },
-
-  // 贪婪 × 慷慨 (Q17-Q20)
-  {
-    dim: "贪婪 × 慷慨",
-    title: "QUESTION 17 · 情境照见",
-    text: "同事临时请你分享一份你整理很久的工作资料，你知道这能帮他赶上进度。你会：",
-    options: [
-      { text: "A. 直接发给他，也告诉他哪些部分最值得先看", shadow: 0, virtue: 3 },
-      { text: "B. 愿意分享，但希望他之后也能帮自己一次", shadow: 1, virtue: 2 },
-      { text: "C. 担心他拿去邀功，于是只给一小部分", shadow: 3, virtue: 0 },
-      { text: "D. 先问清楚用途，再决定分享多少", shadow: 1, virtue: 1 }
-    ]
-  },
-  {
-    dim: "贪婪 × 慷慨",
-    title: "QUESTION 18 · 情境照见",
-    text: "朋友最近经济紧张，向你借一笔钱，但你不确定对方什么时候能还。你会：",
-    options: [
-      { text: "A. 借出自己承受得起的数额，并提前说清楚自己的顾虑", shadow: 0, virtue: 3 },
-      { text: "B. 直接拒绝，担心之后追钱会影响关系", shadow: 1, virtue: 1 },
-      { text: "C. 借钱给对方，但之后常惦记着什么时候归还", shadow: 2, virtue: 1 },
-      { text: "D. 根据自己的情况决定，也可以用其他方式帮忙", shadow: 0, virtue: 3 }
-    ]
-  },
-  {
-    dim: "贪婪 × 慷慨",
-    title: "QUESTION 19 · 情境照见",
-    text: "你和朋友一起完成了一件事，最后受到表扬的主要是朋友。你会：",
-    options: [
-      { text: "A. 立刻补充说明自己也做了很多", shadow: 2, virtue: 0 },
-      { text: "B. 为朋友高兴，之后再找机会清楚介绍自己的贡献", shadow: 0, virtue: 3 },
-      { text: "C. 表面没说什么，心里觉得自己吃了亏", shadow: 3, virtue: 0 },
-      { text: "D. 觉得成果是共同完成的，不太在意是谁先被称赞", shadow: 0, virtue: 3 }
-    ]
-  },
-  {
-    dim: "贪婪 × 慷慨",
-    title: "QUESTION 20 · 情境照见",
-    text: "你手上有一项对自己很有用的资源，分享出去也许会让别人获得机会。你会：",
-    options: [
-      { text: "A. 先确认分享是否会影响自己的必要安排", shadow: 1, virtue: 2 },
-      { text: "B. 只要自己用不上，就愿意让别人试试", shadow: 0, virtue: 3 },
-      { text: "C. 担心别人超过自己，所以不太想分享", shadow: 3, virtue: 0 },
-      { text: "D. 可以分享，但会期待对方记住这份帮助", shadow: 2, virtue: 1 }
-    ]
-  },
-
-  // 暴食 × 节制 (Q21-Q24)
-  {
-    dim: "暴食 × 节制",
-    title: "QUESTION 21 · 情境照见",
-    text: "忙完一整天后，你回到家，虽然已经吃饱了，还是很想继续点宵夜、刷视频到深夜。你会：",
-    options: [
-      { text: "A. 想做就做，今天辛苦了，开心最重要", shadow: 3, virtue: 0 },
-      { text: "B. 先停下来问问自己：我是饿了，还是只是想放松？", shadow: 0, virtue: 3 },
-      { text: "C. 告诉自己只看一会儿，常常结果越拖越晚", shadow: 2, virtue: 0 },
-      { text: "D. 选择一件能让自己舒服、又不会影响休息的事", shadow: 0, virtue: 3 }
-    ]
-  },
-  {
-    dim: "暴食 × 节制",
-    title: "QUESTION 22 · 情境照见",
-    text: "你最近心情不太好，购物软件上正好出现一件让你心动的商品。你会：",
-    options: [
-      { text: "A. 马上下单，觉得买到它心情就会好一点", shadow: 3, virtue: 0 },
-      { text: "B. 先放进购物车，隔一天再决定是否需要", shadow: 0, virtue: 3 },
-      { text: "C. 一边担心花钱，一边不断找理由说服自己购买", shadow: 2, virtue: 0 },
-      { text: "D. 先看看自己现在最需要的是什么，再决定怎么照顾自己", shadow: 0, virtue: 3 }
-    ]
-  },
-  {
-    dim: "暴食 × 节制",
-    title: "QUESTION 23 · 情境照见",
-    text: "周末原本安排了休息和一些必要的事情，朋友临时约你连玩两天。你会：",
-    options: [
-      { text: "A. 全部答应，觉得难得开心就不要想太多", shadow: 3, virtue: 0 },
-      { text: "B. 选自己最想参加的部分，也留出休息时间", shadow: 0, virtue: 3 },
-      { text: "C. 担心拒绝会扫兴，于是答应后又感到疲惫", shadow: 2, virtue: 0 },
-      { text: "D. 根据精力安排，并坦白告诉朋友自己能参加多久", shadow: 0, virtue: 3 }
-    ]
-  },
-  {
-    dim: "暴食 × 节制",
-    title: "QUESTION 24 · 情境照见",
-    text: "你开始追一部剧，本来只打算看一集，但已经很晚，明天还要早起。你会：",
-    options: [
-      { text: "A. 继续看，觉得难得投入进去，不想中断", shadow: 3, virtue: 0 },
-      { text: "B. 看完正在播放的这一集就停下来", shadow: 1, virtue: 2 },
-      { text: "C. 一边担心睡眠，一边告诉自己再看一点", shadow: 2, virtue: 0 },
-      { text: "D. 关掉剧，记下下一集，留到明天再看", shadow: 0, virtue: 3 }
-    ]
-  },
-
-  // 色欲 × 担当 (Q25-Q28)
-  {
-    dim: "色欲 × 担当",
-    title: "QUESTION 25 · 情境照见",
-    text: "一位很有魅力的人主动向你示好，但你目前正处在一段稳定关系中。你会：",
-    options: [
-      { text: "A. 享受暧昧带来的感觉，觉得只要不说破就没关系", shadow: 3, virtue: 0 },
-      { text: "B. 想清楚自己对现有关系的态度，再明确回应对方", shadow: 0, virtue: 3 },
-      { text: "C. 先保持距离，不让事情发展到伤害任何人的地步", shadow: 0, virtue: 3 },
-      { text: "D. 觉得这只是短暂心动，不必认真考虑后果", shadow: 2, virtue: 0 }
-    ]
-  },
-  {
-    dim: "色欲 × 担当",
-    title: "QUESTION 26 · 情境照见",
-    text: "你和伴侣对亲密关系的节奏有不同期待，对方表示想慢一点。你会：",
-    options: [
-      { text: "A. 继续劝说，希望对方理解自己的需求", shadow: 2, virtue: 0 },
-      { text: "B. 尊重对方的节奏，也找机会谈谈彼此的感受和界限", shadow: 0, virtue: 3 },
-      { text: "C. 表面答应，心里觉得自己的需要被忽视了", shadow: 2, virtue: 0 },
-      { text: "D. 先停下来确认对方是否自在，不把自己的期待当作对方的义务", shadow: 0, virtue: 3 }
-    ]
-  },
-  {
-    dim: "色欲 × 担当",
-    title: "QUESTION 27 · 情境照见",
-    text: "你发现自己对一位朋友产生了心动，但你们之间还没有谈过彼此的感受。你会：",
-    options: [
-      { text: "A. 很快把自己的期待投射到对方身上，觉得对方也应该有同样感觉", shadow: 2, virtue: 0 },
-      { text: "B. 先观察彼此的互动，给对方表达或拒绝的空间", shadow: 0, virtue: 3 },
-      { text: "C. 通过试探或制造吃醋来确认对方在不在意自己", shadow: 3, virtue: 0 },
-      { text: "D. 如果决定表达，就坦诚说出感受，也接受对方可能不回应", shadow: 0, virtue: 3 }
-    ]
-  },
-  {
-    dim: "色欲 × 担当",
-    title: "QUESTION 28 · 情境照见",
-    text: "你曾答应伴侣或亲近的人，会对一段关系保持清楚的边界。后来你做了一件可能让对方受伤的事。你会：",
-    options: [
-      { text: "A. 觉得只要没有被发现，就没必要主动提起", shadow: 3, virtue: 0 },
-      { text: "B. 先弄清楚自己为什么越过了边界，再坦诚承担后果", shadow: 0, virtue: 3 },
-      { text: "C. 解释当时的气氛和原因，希望对方不要怪自己", shadow: 2, virtue: 1 },
-      { text: "D. 主动沟通发生了什么，也讨论怎样修复信任、避免重演", shadow: 0, virtue: 3 }
-    ]
-  }
+  { text: "1. 周末不上班的时候，你更像哪种状态？", options: [{ label: "A. 约人出门，不能浪费好天气", score: 1 }, { label: "B. 看心情安排，休息和出门都行", score: 2 }, { label: "C. 最好谁也别找我，我和床约好了", score: 3 }] },
+  { text: "2. 朋友突然约你吃饭，你会？", options: [{ label: "A. 秒回“走！”先出门再说", score: 1 }, { label: "B. 看时间和状态，合适就去", score: 2 }, { label: "C. 先问几个人、去哪儿、几点结束", score: 3 }] },
+  { text: "3. 遇到不熟的人，你通常会？", options: [{ label: "A. 主动找话题，聊着聊着就熟了", score: 1 }, { label: "B. 礼貌自然，慢慢熟悉", score: 2 }, { label: "C. 微笑点头，社交电量省着用", score: 3 }] },
+  { text: "4. 群聊突然热闹起来，你会？", options: [{ label: "A. 立刻加入，表情包先走一波", score: 1 }, { label: "B. 有话就说，没话就潜水", score: 2 }, { label: "C. 看完消息，默默退出现场", score: 3 }] },
+  { text: "5. 工作或学习碰到难题，你通常？", options: [{ label: "A. 先冲一把，办法总比困难多", score: 1 }, { label: "B. 拆开来做，边做边调整", score: 2 }, { label: "C. 先判断值不值得，再决定费不费劲", score: 3 }] },
+  { text: "6. 面对待办清单，你更像？", options: [{ label: "A. 写得满满当当，完成一半也算赢", score: 1 }, { label: "B. 排好优先级，一件件搞定", score: 2 }, { label: "C. 能不做的先不做，主打一个抓重点", score: 3 }] },
+  { text: "7. 收到批评或建议时，你会？", options: [{ label: "A. 当下有点受伤，但很快又燃起来", score: 1 }, { label: "B. 想想哪些有用，有用的留下", score: 2 }, { label: "C. 听听就好，不把所有评价放心上", score: 3 }] },
+  { text: "8. 加班或熬夜赶任务后，你会？", options: [{ label: "A. 嘴上喊累，转头又接着冲", score: 1 }, { label: "B. 尽量补觉，也想办法安排好节奏", score: 2 }, { label: "C. 身体最重要，能拒绝就拒绝", score: 3 }] },
+  { text: "9. 看到喜欢的东西，你会？", options: [{ label: "A. 心动就下单，快乐先到手", score: 1 }, { label: "B. 对比一下预算和需求再决定", score: 2 }, { label: "C. 先放购物车，过几天还想要再说", score: 3 }] },
+  { text: "10. 朋友安利你一款网红产品，你会？", options: [{ label: "A. 先买再说，万一真是宝藏呢", score: 1 }, { label: "B. 看评价，也看看自己用不用得上", score: 2 }, { label: "C. 网红不网红的，适合我才重要", score: 3 }] },
+  { text: "11. 月底发现自己花超了，你会？", options: [{ label: "A. 下个月一定控制！先点个外卖压压惊", score: 1 }, { label: "B. 看看账单，调整一下接下来的安排", score: 2 }, { label: "C. 记住教训，钱包比热爱更诚实", score: 3 }] },
+  { text: "12. 你怎么看“买贵的就是奖励自己”？", options: [{ label: "A. 当然，人生已经够苦了", score: 1 }, { label: "B. 偶尔奖励自己，也要量力而行", score: 2 }, { label: "C. 不买不需要的，才是高级奖励", score: 3 }] },
+  { text: "13. 恋爱里你最看重什么？", options: [{ label: "A. 心动和浪漫，感觉对了就想奔赴", score: 1 }, { label: "B. 喜欢很重要，合适和沟通也重要", score: 2 }, { label: "C. 让人安心、少内耗，比天天心跳加速重要", score: 3 }] },
+  { text: "14. 对方回消息慢，你会？", options: [{ label: "A. 开始脑补，是不是不喜欢我了", score: 1 }, { label: "B. 忙就等一等，有需要再沟通", score: 2 }, { label: "C. 先过好自己的生活，手机不是心电图", score: 3 }] },
+  { text: "15. 发生矛盾时，你更倾向于？", options: [{ label: "A. 希望马上说清楚，别让我猜", score: 1 }, { label: "B. 等双方冷静些，再好好聊", score: 2 }, { label: "C. 能沟通就沟通，不能就及时止损", score: 3 }] },
+  { text: "16. 你相信“总会遇到对的人”吗？", options: [{ label: "A. 相信！爱情值得期待", score: 1 }, { label: "B. 希望遇到，也会认真经营", score: 2 }, { label: "C. 有也很好，没有也能把日子过好", score: 3 }] },
+  { text: "17. 临时计划被打乱，你会？", options: [{ label: "A. 有点崩，但也许能开启新剧情", score: 1 }, { label: "B. 调整一下，看看怎么安排更好", score: 2 }, { label: "C. 计划赶不上变化，先喝口水", score: 3 }] },
+  { text: "18. 你对“人生进度”这件事怎么看？", options: [{ label: "A. 偶尔焦虑，但我也有自己的高光时刻", score: 1 }, { label: "B. 每个人节奏不同，做好当下就行", score: 2 }, { label: "C. 人生不是赶进度条，舒服更重要", score: 3 }] },
+  { text: "19. 买到不合适的东西，你会？", options: [{ label: "A. 先留着，说不定哪天用得上", score: 1 }, { label: "B. 看能不能退换或转送", score: 2 }, { label: "C. 该处理就处理，不和沉没成本谈恋爱", score: 3 }] },
+  { text: "20. 一天结束前，你最想要什么？", options: [{ label: "A. 还有点新鲜事发生，今天别太普通", score: 1 }, { label: "B. 把该做的做好，安心休息", score: 2 }, { label: "C. 没人打扰、睡个好觉，已经很圆满", score: 3 }] }
 ];
-const pairs=[{sin:'傲慢',virtue:'真诚',need:'被尊重、保持价值感或避免暴露不足',question:'当我急于解释或隐藏时，我最希望别人理解什么？',gift:'承认未知、表达真实感受，也愿意修正自己的判断。',help:'让沟通更可信，也让支持真正有机会靠近。',risk:'过度坦白可能忽略时机与边界；承认不足也不等于否定自己。'}, {sin:'嫉妒',virtue:'勇敢',need:'看见自己的渴望，确认自己也有机会向前',question:'我羡慕的那部分，是否在提醒我想尝试什么？',gift:'把比较转化为行动，愿意迈出小而真实的一步。',help:'帮助你争取机会，并从他人的经历中找到路径。',risk:'勇敢不必变成冒进；可以先评估资源，再设定可承受的一步。'}, {sin:'暴怒',virtue:'宽容',need:'公平、被认真对待，以及清晰的个人边界',question:'这份愤怒在保护什么？我可以怎样清楚表达界限？',gift:'能暂停反应，区分误会与伤害，并用具体语言沟通。',help:'为冲突留出修复空间，同时不放弃表达不舒服。',risk:'宽容不等于吞下委屈；善意可以和坚定边界同时存在。'}, {sin:'懒惰',virtue:'勤奋',need:'休息、清晰感，或从过大的任务中获得喘息',question:'如果只做十分钟，最小且有意义的开始是什么？',gift:'愿意持续投入，并能把大目标拆成可执行步骤。',help:'让长期计划从想法落到日常，也积累稳定感。',risk:'勤奋若没有恢复会变成耗竭；休息也是可持续行动的一部分。'}, {sin:'贪婪',virtue:'慷慨',need:'安全感、公平回报，以及对资源的掌控',question:'我愿意分享什么？怎样分享能兼顾善意与自己的承受力？',gift:'看见共同成果，愿意分享时间、知识或机会。',help:'促进互信与合作，让关系中的给予更加流动。',risk:'慷慨不必以牺牲为代价；说清条件也是尊重彼此。'}, {sin:'暴食',virtue:'节制',need:'安慰、奖励、放松，或从压力里暂时抽离',question:'此刻真正需要的是刺激、安慰、休息，还是陪伴？',gift:'能停下来辨认需要，并选择更适合长远状态的回应。',help:'让享受与休息更有意识，也保护精力和时间。',risk:'节制不是惩罚或剥夺；允许快乐，也给身体留有余地。'}, {sin:'色欲',virtue:'担当',need:'亲密、被渴望、自由表达，以及关系中的安全感',question:'怎样表达自己的期待，同时尊重彼此的同意与边界？',gift:'重视坦诚、同意、承诺与行动后果。',help:'让亲密关系建立在清楚沟通和相互尊重之上。',risk:'担当不代表独自承担全部情绪；亲密需要双方协商与选择。'}];
-const adviceList=[['暂停十秒','在比较、愤怒或冲动出现时，先给自己十秒，问“我现在最需要什么？”'],['把目标缩小','拖延时只承诺一个十分钟动作；完成后再决定是否继续。'],['练习清楚表达','用“发生了……我感到……我希望……”表达感受与边界。'],['给享受设容器','为休息、娱乐或购物设定一个温和边界，让满足感不挤占恢复。']];
-let answers=Array(questionsData.length).fill(null),index=0,chart=null,chartMode='all';const $=id=>document.getElementById(id);const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-function show(id){document.querySelectorAll('.view').forEach(x=>x.classList.toggle('active',x.id===id));window.scrollTo({top:0,behavior:'smooth'})}function toast(s){const el=$('toast');el.textContent=s;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2400)}
-function topicCards(){ $('topicGrid').innerHTML=pairs.map((p,i)=>`<div class="glass topic rounded-2xl p-4 flex items-center gap-4"><span class="serif gold text-2xl">0${i+1}</span><div><p class="text-stone-100">${p.sin} <span class="gold">×</span> ${p.virtue}</p><p class="text-xs text-stone-500 mt-1">暗影与资源，皆可被看见</p></div></div>`).join('') }topicCards();
-function startTest(){answers.fill(null);index=0;renderQuestion();show('quiz')}
-function renderQuestion(){const q=questionsData[index];$('qNumber').textContent=`QUESTION ${String(index+1).padStart(2,'0')} / ${questionsData.length}`;$('qDim').textContent=`情境照见 · ${q.dim}`;$('qTitle').textContent=q.title;$('qText').textContent=q.text;let pct=Math.round((index+1)/questionsData.length*100);$('progress').style.width=pct+'%';$('percent').textContent=pct+'%';$('options').innerHTML=q.options.map((o,i)=>`<button class="option ${answers[index]===i?'selected':''}" aria-pressed="${answers[index]===i}" onclick="selectOption(${i})"><span class="gold font-serif mr-3">${String.fromCharCode(65+i)}</span>${esc(o.text.slice(3))}</button>`).join('');$('prevBtn').disabled=index===0;$('prevBtn').style.opacity=index===0?'.45':'1'}
-function selectOption(i){const selectedAt=index;answers[selectedAt]=i;renderQuestion();setTimeout(()=>{if(index!==selectedAt)return;if(selectedAt===questionsData.length-1){renderResults();show('result');return}index=selectedAt+1;renderQuestion();window.scrollTo({top:0,behavior:'smooth'})},220)}function move(d){if(d<0&&index===0)return;if(d<0){index--;renderQuestion();window.scrollTo({top:0,behavior:'smooth'})}}
-function scores(){return pairs.map((_,d)=>{const picks=questionsData.slice(d*4,d*4+4).map((q,j)=>q.options[answers[d*4+j]]);return {shadow:Math.round(picks.reduce((a,x)=>a+x.shadow,0)/12*100),virtue:Math.round(picks.reduce((a,x)=>a+x.virtue,0)/12*100)}})}
-const deepProfiles=[
-{shadow:'当能力受到质疑、需要承认遗漏，或谈到自己的脆弱时，可能更容易启动解释、收起真实感受或把话题带回熟悉处。这样的反应有时在保护自尊，也在争取被公平理解的机会。',light:'真诚在这里不是把一切都说出来，而是能区分“解释事实”与“证明我没有错”，并在安全的关系中适度表达不知道、做不到或需要帮助。',micro:'下一次想立刻辩解时，先说一句可核实的事实，再补一句“我想确认你指出的问题”。'},
-{shadow:'当他人的成绩映照出自己未实现的愿望、或自己的努力暂时没有被看见时，比较可能把注意力从“我想要什么”带向“我是否落后”。',light:'勇敢不是不羡慕、不害怕，而是能够把羡慕当作愿望线索，选一个风险可控的小步骤去接近它。',micro:'把“我也想拥有”具体化为本周一个可以完成的行动，而不是拿整个人生与别人比较。'},
-{shadow:'当规则被打破、承诺落空或界限被反复触碰时，愤怒可能迅速升高；也可能先压下反应，之后持续回想。这常与公平、可靠和被尊重的需要有关。',light:'宽容不要求你假装没事。它可以表现为先降低冲突强度，再清晰说明事实、影响和需要；必要时退出无效对话。',micro:'用“发生了什么—造成什么影响—我希望下一步怎样”表达，不必先判断对方的动机。'},
-{shadow:'当任务模糊、规模太大、回报很远，或精力已经不足时，拖延可能让你短暂避开失败感和过载感。它未必是缺少意愿，也可能是启动成本太高。',light:'勤奋更容易在目标被拆小、环境有提示、允许不完美时出现。稳定的小步通常比一次性补偿更可持续。',micro:'把“完成目标”改成“打开材料并做十分钟”，并提前决定结束点。'},
-{shadow:'当资源有限、贡献可能被忽略，或分享后担心失去优势时，保留与核算可能变得突出。它可能在守护安全、公平回报或努力被承认的需要。',light:'慷慨可以是有选择、有边界的分享：先确定自己承受得起的部分，再说清使用方式和期待。',micro:'分享之前划定范围；若希望贡献被看见，可以直接说明自己的参与，而不是等别人猜到。'},
-{shadow:'在疲惫、情绪低落、独处或等待的空档里，快速而容易获得的刺激可能变得特别有吸引力。它能提供短暂安慰，却未必回应了更底层的休息、陪伴或情绪整理需要。',light:'节制不是禁止享受，而是让选择重新回到自己手里：暂停一下，辨认真正需要，再决定怎样满足。',micro:'冲动出现时先延迟十分钟，并准备一个同样容易开始的替代选项，如洗澡、散步或联系可信任的人。'},
-{shadow:'当亲密、吸引、被需要与承诺边界同时出现时，短期感受可能与长期关系责任拉扯。关键不在于否认心动，而在于如何处理同意、诚实与后果。',light:'担当表现为尊重对方节奏、清楚表达自己的期待，并愿意承担选择带来的影响；双方都保有拒绝和协商的空间。',micro:'在推进亲密或作出承诺前，确认双方理解一致，并给“不”留下真实位置。'}];
-const virtueNames=['真诚','勇敢','宽容','勤奋','慷慨','节制','担当'];
-function band(n){return n>=70?'鲜明':n>=45?'可见':'偶尔调用'}
-function shadowRead(score){if(score>=70)return '本次几道题里，保护性反应出现得较集中；相关情境可能值得优先留意。';if(score>=45)return '本次既出现保护性反应，也出现其他选择；压力强度和具体关系可能影响你采取哪一种。';return '本次回答较少选择以回避、压住或立即满足来保护自己的路径；这不表示你永远不会有这些反应。'}
-function virtueRead(score){if(score>=70)return '本次回答多次动用了相应的建设性资源，可以把它视作已经存在的能力，而不是额外要求自己做到完美。';if(score>=45)return '本次回答显示这项资源在部分场景可被调用；它可能需要合适的时机、足够安全感或更清楚的行动步骤。';return '本次较少选择这条回应路径，不等于你缺少这项品质；也可能是当时更优先照顾了别的需要。'}
-const questionCues=[
-'公开反馈与方案漏洞','朋友询问近况','陌生领域被征询意见','承诺事项逾期','朋友创业获得投资','申请机会与强劲竞争者','聚会里的成就比较','羡慕同事的生活状态',
-'排队时遭遇插队','朋友忘记重要约定','家人反复触碰旧话题','网络评论里的误解','课程进度落后','搁置已久的重要目标','重复琐碎的团队任务','运动计划中断',
-'分享整理好的工作资料','朋友借钱与关系顾虑','共同成果里的个人贡献','分享可能带来机会的资源','疲惫后的夜间刺激','低落时的购物冲动','休息安排与朋友邀约','深夜追剧与次日早起',
-'稳定关系外的吸引','亲密节奏不一致','对朋友心动但未确认','越过关系约定后的修复'
-];
-function readDimension(i,x){const p=pairs[i],qs=questionsData.slice(i*4,i*4+4),picks=qs.map((q,j)=>q.options[answers[i*4+j]]),shadowN=picks.filter(o=>o.shadow>=2).length,virtueN=picks.filter(o=>o.virtue>=2).length,shared=picks.filter(o=>o.shadow>=2&&o.virtue>=2).length,shadowCues=qs.map((q,j)=>picks[j].shadow>=2?questionCues[i*4+j]:null).filter(Boolean),virtueCues=qs.map((q,j)=>picks[j].virtue>=2?questionCues[i*4+j]:null).filter(Boolean);let synthesis;if(x.shadow>=65&&x.virtue>=65)synthesis=`在这组情境里，保护自己的反应与建设性资源都相当明显。这更像是你会随场景切换策略：${deepProfiles[i].shadow}也有机会调用${p.virtue}一侧的力量：${deepProfiles[i].light}`;else if(x.shadow>=60)synthesis=`在这组情境里，保护、回避或即时缓解压力的方式更常先出现。它可能在替你守住${p.need}；当它成为唯一熟悉的路径时，深层需要不一定能被真正回应。${deepProfiles[i].shadow}`;else if(x.virtue>=60)synthesis=`这组回答里，${p.virtue}资源较常被调动：${deepProfiles[i].light}同时，发挥这项能力不必意味着压下自己的顾虑；${p.risk}`;else if(Math.abs(x.shadow-x.virtue)<=18)synthesis=`暗影与光面分数接近，说明这四个场景里两类回应都留下了空间。你可能会依据关系、安全感和当时精力调整做法，而非固定站在一边。${deepProfiles[i].shadow}`;else synthesis=`这组情境里，两侧资源都出现，但强度并不相同。压力增加时，${deepProfiles[i].shadow}在条件合适时，你仍可以逐渐练习另一条回应路径：${deepProfiles[i].light}`;const contextText=shadowCues.length?`暗影较容易浮现的主题：${shadowCues.slice(0,3).join('、')}${shadowCues.length>3?'等':''}。`:'';const resourceText=virtueCues.length?`较能调动的资源：${virtueCues.slice(0,3).join('、')}${virtueCues.length>3?'等':''}。`:'';return {i,x,p,picks,shadowN,virtueN,shared,contextText,resourceText,synthesis,shadowCues,virtueCues}}
-function renderResults(){const ss=scores(),avgS=Math.round(ss.reduce((a,x)=>a+x.shadow,0)/7),avgV=Math.round(ss.reduce((a,x)=>a+x.virtue,0)/7),ranked=ss.map((x,i)=>({i,...x,gap:Math.abs(x.shadow-x.virtue)})),sins=[...ranked].sort((a,b)=>b.shadow-a.shadow),virtues=[...ranked].sort((a,b)=>b.virtue-a.virtue),mostSplit=[...ranked].sort((a,b)=>b.gap-a.gap),mostBalanced=[...ranked].sort((a,b)=>a.gap-b.gap);let medal,title;if(avgV>=65&&avgS>=42){medal='执火的寻路人';title='你的回答同时带着敏锐的自我保护与愿意靠近真实的力量。两者并存并不矛盾：保护可能让你先站稳，资源则帮助你决定何时重新打开沟通。';}else if(avgV>=65){medal='持灯的同行者';title='本次回答里，你较常找到能推动事情或照顾关系的回应。也请留意，不必把每次都处理得周全当作责任；让别人分担，也是关系能力的一部分。';}else if(avgS>=55){medal='静默的观潮者';title='你的回答呈现出对风险与消耗的敏感。某些回避、保留或即时安慰可能曾经帮你撑过当下；理解它的用途，能让你逐步找到更多选择。';}else{medal='温柔的校准者';title='你在不同情境里展现出调整空间。与其给自己贴上固定标签，不如继续观察：在什么条件下，哪一种回应会更适合你。';}$('medal').textContent=medal;$('medalText').textContent=title;
-$('ranked').innerHTML=[{kind:'sin',label:'七宗罪之首',item:sins[0],sub:'最容易浮现的保护信号'},{kind:'sin',label:'第二印记',item:sins[1],sub:'另一条值得观察的线索'},{kind:'virtue',label:'首要美德',item:virtues[0],sub:'本次较常调用的行动资源'}].map(x=>`<article class="report-card ${x.kind} rounded-2xl"><div class="flex items-center gap-4"><span class="serif text-3xl ${x.kind==='sin'?'text-rose-300':'text-lime-200'}">${x.kind==='sin'?'◐':'✦'}</span><div class="flex-1"><p class="eyebrow">${x.label}</p><h4 class="serif text-2xl mt-1">${x.kind==='sin'?pairs[x.item.i].sin:virtueNames[x.item.i]}</h4><p class="text-sm text-stone-400 mt-1">${x.sub} · ${x.kind==='sin'?deepProfiles[x.item.i].shadow:deepProfiles[x.item.i].light}</p></div><strong class="serif text-3xl ${x.kind==='sin'?'text-rose-300':'text-lime-200'}">${x.kind==='sin'?x.item.shadow:x.item.virtue}</strong></div></article>`).join('');
-const profiles=ranked.map(x=>readDimension(x.i,x));function level(v){return v>=75?'极强':v>=55?'显著':v>=30?'可见':'较弱'}function sinCard(d,pos){const {i,x,shadowN,virtueN,shadowCues}=d,p=pairs[i],cues=shadowCues.length?shadowCues.slice(0,4).join(' · '):'本次没有集中出现单一触发场景';let primary=x.shadow>=75?'主导印记':pos===1?'第二印记':'可见';let combined=x.shadow>=70?`在这组四个生活场景中，保护自己或迅速缓解压力的反应较集中（${shadowN}/4 个情境达到明显水平）。这可能说明当${p.need}被触及时，你更容易先用熟悉的方式让自己撑过当下。`:x.shadow>=45?`这组回答呈现出情境差异：有些时刻保护反应会先出现，另一些时刻你能调动不同做法（${shadowN}/4 个情境出现明显暗影线索）。这提示你的反应会随压力、关系和可用精力改变。`:`本次四个情境里，暗影侧信号相对较少（${shadowN}/4 个情境明显）。这不代表相关需要不存在，而可能说明你在这些场景中有更多回应空间，或当下压力并未集中触发它。`;return `<article class="report-card sin rounded-2xl p-5 md:p-7"><div class="flex justify-between items-start gap-4"><div><p class="eyebrow">${primary} · ${level(x.shadow)}</p><h4 class="serif text-3xl md:text-4xl text-rose-200 mt-2">${p.sin}</h4><p class="text-stone-400 mt-2">${p.need}</p></div><div class="text-right shrink-0"><strong class="serif text-3xl text-rose-400">${x.shadow}</strong><p class="text-xs gold mt-1">${primary}</p></div></div><div class="bar-track mt-5"><div class="bar-fill bg-rose-500/80" style="width:${x.shadow}%"></div></div><div class="signature mt-5">情境印记 · ${level(x.shadow)}</div><div class="analysis-panel mt-4"><p class="text-stone-400 leading-7">在本维度中，较容易被触动的共同主题是：</p><p class="text-rose-200 text-lg leading-8 mt-1">${cues}</p><div class="flex flex-wrap gap-2 mt-4"><span class="tag">暗影线索 ${shadowN} / 4</span><span class="tag">光面资源 ${virtueN} / 4</span><span class="tag">${x.shadow>=65&&x.virtue>=65?'两种路径均有出现':x.shadow>x.virtue?'保护反应较先启动':'反应随情境切换'}</span></div><div class="border-t border-amber-100/10 mt-4 pt-4"><p class="text-stone-200 leading-8">${combined}</p><p class="text-stone-300 leading-8 mt-4">${deepProfiles[i].shadow}</p></div></div><p class="text-stone-400 leading-8 mt-5">有时，“够了”或“先撑过去”的信号不容易在忙碌中被听见。若类似情境反复出现，可以留意当时更想保护的是安全、公平、被看见，还是暂时不必面对某种感受。理解它的用途，比急着压下它更能带来选择。</p><div class="mt-4 border-l-2 border-amber-400 pl-4 py-2 bg-amber-300/[.04]"><p class="gold text-sm tracking-widest">平衡提醒</p><p class="text-stone-300 leading-7 mt-2">${deepProfiles[i].micro} ${p.risk}</p></div></article>`}
-function virtueCard(d,pos){const {i,x,shadowN,virtueN,virtueCues}=d,p=pairs[i],cues=virtueCues.length?virtueCues.slice(0,4).join(' · '):'本次没有集中调用单一美德资源';let primary=pos===0?'首要美德':pos===1?'第二资源':'可用资源';let combined=x.virtue>=70?`这组情境中，你多次动用了${p.virtue}相关能力（${virtueN}/4 个情境达到明显水平）。它不是抽象的好品质，而是已经能在具体生活里出现的回应资源。`:x.virtue>=45?`本次回答显示${p.virtue}资源在部分场景可以被调用（${virtueN}/4 个情境明显）。它可能更依赖关系安全感、明确边界或可执行的第一步。`:`本次较少出现${p.virtue}一侧的明确行动（${virtueN}/4 个情境明显）。这不等于你缺少这项能力；也可能是当时优先保护了其他需要，或题目情境没有提供合适空间。`;return `<article class="report-card virtue rounded-2xl p-5 md:p-7"><div class="flex justify-between items-start gap-4"><div><p class="eyebrow">${primary} · ${level(x.virtue)}</p><h4 class="serif text-3xl md:text-4xl text-lime-200 mt-2">${p.virtue}</h4><p class="text-stone-400 mt-2">${p.gift}</p></div><div class="text-right shrink-0"><strong class="serif text-3xl text-lime-200">${x.virtue}</strong><p class="text-xs gold mt-1">${primary}</p></div></div><div class="bar-track mt-5"><div class="bar-fill bg-lime-300/80" style="width:${x.virtue}%"></div></div><div class="signature mt-5">光面印记 · ${level(x.virtue)}</div><div class="analysis-panel mt-4"><p class="text-stone-400 leading-7">这项资源较容易出现的共同主题是：</p><p class="text-lime-100 text-lg leading-8 mt-1">${cues}</p><div class="flex flex-wrap gap-2 mt-4"><span class="tag">光面回应 ${virtueN} / 4</span><span class="tag">暗影线索 ${shadowN} / 4</span><span class="tag">${x.virtue>=65&&x.shadow>=65?'资源与保护并存':x.virtue>=60?'资源较常被调用':'仍可逐步唤起'}</span></div><div class="border-t border-amber-100/10 mt-4 pt-4"><p class="text-stone-200 leading-8">${combined}</p><p class="text-stone-300 leading-8 mt-4">${deepProfiles[i].light} ${p.help}</p></div></div><p class="text-stone-400 leading-8 mt-5">美德不是要求自己永远表现正确。它真正能帮上忙，是当你需要时可以调用它，同时仍然容许犹豫、疲惫和求助。</p><div class="mt-4 border-l-2 border-lime-300 pl-4 py-2 bg-lime-300/[.04]"><p class="gold text-sm tracking-widest">边界与唤醒提醒</p><p class="text-stone-300 leading-7 mt-2">${p.risk} ${deepProfiles[i].micro}</p></div></article>`}
-$('sinDetails').innerHTML=[...profiles].sort((a,b)=>b.x.shadow-a.x.shadow).map(sinCard).join('');$('virtueDetails').innerHTML=[...profiles].sort((a,b)=>b.x.virtue-a.x.virtue).map(virtueCard).join('');
-const leadShadow=sins[0],leadVirtue=virtues[0],darkI=leadShadow.i,lightI=leadVirtue.i,split=mostSplit[0],balanced=mostBalanced[0],darkPrompts=questionCues.slice(darkI*4,darkI*4+4).filter((cue,j)=>questionsData[darkI*4+j].options[answers[darkI*4+j]].shadow>=2),lightPrompts=questionCues.slice(lightI*4,lightI*4+4).filter((cue,j)=>questionsData[lightI*4+j].options[answers[lightI*4+j]].virtue>=2);const crossRead=darkI===lightI?`最突出的暗影线索与最常调用的美德落在同一主题：${pairs[darkI].sin} 与 ${pairs[lightI].virtue}。这说明相关需要和可用资源可能在同一类情境里相遇。遇到压力时，不必先消灭不舒服；先辨认它在保护什么，再决定是否调用这项资源。`:`暗影信号较突出的是${pairs[darkI].sin}（${leadShadow.shadow}），而较常调用的资源是${pairs[lightI].virtue}（${leadVirtue.virtue}）。两者分属不同主题，可能意味着你在某些压力情境里更容易被旧的保护方式带走，而在另一些情境中已经拥有可用的行动能力。可把${pairs[lightI].virtue}的做法迁移到较难的场景，但不需要强迫自己立刻做到。`;$('insight').innerHTML=`<article class="report-card rounded-2xl"><p class="eyebrow">INSIGHT 01 · 整体基调</p><h4 class="serif text-2xl mt-3">这份结果更像一张需要地图</h4><p class="text-stone-300 leading-8 mt-3">七个维度的暗影均分为 <strong class="gold text-xl">${avgS}</strong>，美德资源均分为 <strong class="gold text-xl">${avgV}</strong>。${avgS>avgV?'本次回答里，保护自己或缓解即时压力的路线稍常出现。这可能反映某些需要目前更急切，适合先理解它，而不是急着责备自己。':'本次回答里，沟通、行动或边界资源稍常出现。它们是可依靠的能力，但不需要变成“我必须一直做得正确”的新要求。'}七组分数的差异也提醒我们：你并非只有一种固定反应，场景会改变你能调动的选择。</p></article><article class="report-card rounded-2xl"><p class="eyebrow">INSIGHT 02 · 暗影与资源如何相遇</p><h4 class="serif text-2xl mt-3">${pairs[darkI].sin} × ${pairs[lightI].virtue}</h4><p class="text-stone-300 leading-8 mt-3">${crossRead}</p><div class="trace-box mt-3"><p class="text-sm text-stone-400">暗影侧较易触发的主题：${darkPrompts.length?darkPrompts.slice(0,3).join('、'):'本次没有明显集中的单一触发主题'}。较常出现美德资源的主题：${lightPrompts.length?lightPrompts.slice(0,3).join('、'):'本次没有明显集中的单一资源主题'}。</p></div></article><article class="report-card rounded-2xl"><p class="eyebrow">INSIGHT 03 · 最大张力</p><h4 class="serif text-2xl mt-3">${pairs[split.i].sin} 与 ${pairs[split.i].virtue} 的距离最明显</h4><p class="text-stone-300 leading-8 mt-3">本次暗影 ${split.shadow}、美德 ${split.virtue}，相差 ${split.gap} 分。${split.shadow>split.virtue?`在${pairs[split.i].need}被触动时，保护方式可能比${pairs[split.i].virtue}资源更快启动。`:`你较常调用${pairs[split.i].virtue}；值得留意这种能力是否同时照顾了自身需要，还是有时变成对自己的要求。`}这只是本次回答的落差，不代表内在冲突的程度。</p><p class="text-sm text-stone-400 leading-7 mt-2">可以尝试：${deepProfiles[split.i].micro}</p></article><article class="report-card rounded-2xl"><p class="eyebrow">INSIGHT 04 · 稳定支点</p><h4 class="serif text-2xl mt-3">${pairs[balanced.i].sin} × ${pairs[balanced.i].virtue} 两侧较接近</h4><p class="text-stone-300 leading-8 mt-3">暗影 ${balanced.shadow}、美德 ${balanced.virtue}，差距 ${balanced.gap} 分。分数接近不等于没有拉扯，更可能表示你在这类情境下保留了不止一种回应。回想哪些条件让这种弹性更容易出现，它们可能是你可以带到其他领域的支点。</p></article>`;
-$('tensions').innerHTML=ranked.sort((a,b)=>b.gap-a.gap).map(x=>{const i=x.i,dom=x.shadow>x.virtue?'sin':x.virtue>x.shadow?'virtue':'even',txt=dom==='sin'?`暗影 ${x.shadow} · 光面 ${x.virtue}；本次较常由「${pairs[i].sin}」一侧带路。${deepProfiles[i].shadow}`:dom==='virtue'?`暗影 ${x.shadow} · 光面 ${x.virtue}；「${pairs[i].virtue}」资源较常出现，留意它是否有时变成对自己的额外要求。${pairs[i].risk}`:`暗影与光面均为 ${x.shadow}；两侧都可被调用，具体情境或关系安全感可能影响选择。`;return `<article class="report-card ${dom==='sin'?'sin':dom==='virtue'?'virtue':''} rounded-2xl"><div class="flex flex-wrap items-center justify-between gap-3"><h4 class="serif text-xl"><span class="gold">${pairs[i].sin} ↔ ${pairs[i].virtue}</span></h4><span class="tag">差距 ${x.gap} · ${x.gap>=55?'较明显':x.gap>=25?'可观察':'势均力敌'}</span></div><div class="grid sm:grid-cols-[95px_1fr_38px] items-center gap-2 mt-4 text-sm"><span class="text-rose-200">暗影 · ${pairs[i].sin}</span><div class="bar-track"><div class="bar-fill bg-rose-500/80" style="width:${x.shadow}%"></div></div><span class="text-right">${x.shadow}</span><span class="text-lime-200">光面 · ${pairs[i].virtue}</span><div class="bar-track"><div class="bar-fill bg-lime-300/80" style="width:${x.virtue}%"></div></div><span class="text-right">${x.virtue}</span></div><p class="text-sm text-stone-400 leading-7 mt-4">${txt}</p></article>`}).join('');
-const triggerDims=ranked.map(x=>({i:x.i,x,cues:questionCues.slice(x.i*4,x.i*4+4).filter((cue,j)=>questionsData[x.i*4+j].options[answers[x.i*4+j]].shadow>=2)})).filter(x=>x.cues.length).sort((a,b)=>b.x.shadow-a.x.shadow).slice(0,3);$('triggerList').innerHTML=triggerDims.length?triggerDims.map(({i,x,cues})=>`<article class="rounded-xl bg-black/25 border-l-2 border-rose-500/70 p-4"><p class="gold text-sm">${pairs[i].sin} · 本维度暗影 ${x.shadow}/100</p><p class="text-sm text-stone-300 mt-2">较易触动的情境主题：${cues.join('、')}。</p><p class="text-sm text-stone-400 leading-7 mt-2">这些主题可能共同牵涉${pairs[i].need}。与其逐件复盘，不妨观察它们共享的压力：你当时最想避免什么、守住什么，或尽快得到什么？</p></article>`).join(''):'<p class="text-sm text-stone-400 p-4">本次没有出现集中的高分触发维度。你可以把注意力放在最有落差的主题上，观察那里是否有未被说出的需要。</p>';
-const advice=sins.slice(0,2).map(x=>({i:x.i,kind:'关注暗影'})).concat(virtues.slice(0,2).map(x=>({i:x.i,kind:'稳固资源'})));$('advice').innerHTML=advice.map((x,n)=>{const p=pairs[x.i],pr=deepProfiles[x.i];return `<article class="rounded-2xl border border-white/10 bg-white/[.025] p-5"><p class="gold text-sm">0${n+1} · ${x.kind}「${x.kind==='关注暗影'?p.sin:p.virtue}」</p><h4 class="serif text-xl mt-2">适用情境：${x.kind==='关注暗影'?p.need:'在熟悉、安全且允许试错的场景'}</h4><p class="text-sm text-stone-300 leading-7 mt-2">${pr.micro}</p><p class="text-sm text-stone-400 leading-7 mt-2"><span class="gold">自我提醒：</span>${x.kind==='关注暗影'?'我可以先承认需要，再选择回应方式。':'我不必做到完美，先迈出一小步就算开始。'}</p></article>`}).join('');
-if(chart)chart.destroy();chartMode='all';document.querySelectorAll('.chart-tab').forEach((b,i)=>{b.classList.toggle('active',i===0);b.setAttribute('aria-selected',i===0?'true':'false')});$('chartRank').innerHTML=`<div class="chart-rank-pill"><span>♕</span>七宗罪之首 <b>${pairs[sins[0].i].sin}</b> ${sins[0].shadow}</div><div class="chart-rank-pill"><span>⌛</span>第二印记 <b>${pairs[sins[1].i].sin}</b> ${sins[1].shadow}</div>`;const ring=[{label:'真诚',type:'virtue',i:0},{label:'勇敢',type:'virtue',i:1},{label:'勤奋',type:'virtue',i:3},{label:'担当',type:'virtue',i:6},{label:'节制',type:'virtue',i:5},{label:'慷慨',type:'virtue',i:4},{label:'宽容',type:'virtue',i:2},{label:'懒惰',type:'sin',i:3},{label:'贪婪',type:'sin',i:4},{label:'暴食',type:'sin',i:5},{label:'色欲',type:'sin',i:6},{label:'暴怒',type:'sin',i:2},{label:'嫉妒',type:'sin',i:1},{label:'傲慢',type:'sin',i:0}];const sinRing=ring.map(a=>a.type==='sin'?ss[a.i].shadow:0),virtueRing=ring.map(a=>a.type==='virtue'?ss[a.i].virtue:0);try{chart=new Chart($('radar'),{type:'radar',data:{labels:ring.map(a=>a.label),datasets:[{label:'七美德 · 光面力量',data:virtueRing,borderColor:'#b7d987',backgroundColor:'rgba(137,174,97,.30)',pointBackgroundColor:'#d8e8a8',pointBorderColor:'#859e5a',pointRadius:4,pointHoverRadius:6,borderWidth:2.2},{label:'七宗罪 · 暗面驱力',data:sinRing,borderColor:'#d8797b',backgroundColor:'rgba(174,51,56,.28)',pointBackgroundColor:'#f0b5a3',pointBorderColor:'#b55359',pointRadius:4,pointHoverRadius:6,borderWidth:2.2}]},options:{responsive:true,maintainAspectRatio:true,plugins:{legend:{display:false},tooltip:{backgroundColor:'rgba(15,12,11,.96)',borderColor:'rgba(212,175,55,.35)',borderWidth:1,titleColor:'#e6c280',bodyColor:'#eee5d2',callbacks:{title:(items)=>ring[items[0].dataIndex].label, label:(ctx)=>`${ctx.dataset.label}：${ctx.raw}`}}},scales:{r:{min:0,max:100,ticks:{display:true,stepSize:25,backdropColor:'transparent',color:'rgba(212,175,55,.55)',font:{size:9}},grid:{color:'rgba(255,255,255,.10)',borderDash:[2,7]},angleLines:{color:'rgba(255,255,255,.10)'},pointLabels:{color:(ctx)=>ring[ctx.index].type==='sin'?'#d99a91':'#bad08d',font:{size:11,weight:'500'},padding:5}}},elements:{line:{tension:0}},layout:{padding:16}}})}catch(e){chart=null;$('radar').style.display='none';$('chartFallback').hidden=false}}function setChartMode(mode,button){chartMode=mode;document.querySelectorAll('.chart-tab').forEach(b=>{const active=b===button;b.classList.toggle('active',active);b.setAttribute('aria-selected',active?'true':'false')});if(!chart)return;chart.data.datasets.forEach((ds,di)=>{const show=mode==='all'||(mode==='sin'&&di===1)||(mode==='virtue'&&di===0);ds.hidden=!show});chart.update()}
-function resultText(){const pairsText=pairs.map((p,i)=>`${p.sin} × ${p.virtue}：暗影 ${scores()[i].shadow} / 美德 ${scores()[i].virtue}`).join('\n');return `七宗罪 × 七美德｜灵魂档案
-灵魂勋章：${$('medal').textContent}
-${$('medalText').textContent}
-
-${pairsText}
-
-灵魂徽章
-${$('ranked').innerText}
-
-七罪详单
-${$('sinDetails').innerText}
-
-七德详单
-${$('virtueDetails').innerText}
-
-专属洞察
-${$('insight').innerText}
-
-七维撕裂地图
-${$('tensions').innerText}
-
-触发因素清单
-${$('triggerList').innerText}
-
-平衡建议
-${$('advice').innerText}
-
-本测试为自我反思与自我觉察体验，并非心理诊断、临床评估或道德评判。`}
-async function copyResult(){try{await navigator.clipboard.writeText(resultText());toast('完整结果已复制。')}catch(e){const t=document.createElement('textarea');t.value=resultText();document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();toast('完整结果已复制。')}}function saveResult(){const blob=new Blob([resultText()],{type:'text/plain;charset=utf-8'}),a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='灵魂档案.txt';a.click();URL.revokeObjectURL(a.href);toast('结果已保存为文本文件。')}function restart(){answers.fill(null);index=0;show('intro')}
+const resultsData = {
+  age18: { age: "18 岁", title: "【18岁：永远热泪盈眶的“精神大学生”】", tags: ["热烈", "好奇", "容易心动"], feature: "你很容易被生活点亮：一顿好吃的、一句真诚的夸奖、一个临时起意的计划，都能让普通的一天突然有了颜色。你愿意先靠近、先尝试，也愿意把喜欢说出口。这份开放让你更容易遇见惊喜；有时也会让你把一时的心动当成必须立刻兑现的承诺，或因为太在意回应而反复揣测。", analysis: "你的答案呈现出一种“先感受，再理解”的节奏。情绪来得快，说明你和自己的渴望连得很近；但热烈不等于脆弱，犹豫也不等于退步。下次特别想马上答应、买下或追问时，可以先给自己一晚：如果明天仍然喜欢，再带着更稳的心意行动。保护热情，不是把火熄掉，而是让它能陪你走得更久。", quote: "“我可以暂时长大，但心里那团火不打算下班。”" },
+  age25: { age: "25 岁", title: "【25岁：人间清醒的“情绪打工人”】", tags: ["有热爱", "有分寸", "节奏感"], feature: "你既会被新鲜感吸引，也会看看现实条件；既希望关系亲密，也知道沟通和边界不能省略。你擅长在投入与保留之间找位置，不轻易把生活交给单一情绪或一次决定。代价是，你可能总在心里开协调会：想要什么、应该怎么做、会不会让谁失望，样样都想照顾周全。", analysis: "你正在练习的不是“更懂事”，而是分清哪些责任真的属于自己。理性可以帮你看清选项，却不必替每个感受写出完美答案；有时累了、失望了，承认它就已经是有效的处理。试着把标准从“每一步都选对”改成“这一步符合我此刻重视的东西”，你会更容易在现实里保留热爱，也允许自己偶尔不那么高效。", quote: "“我依然期待生活，但不会把自己押给任何一个结果。”" },
+  age35: { age: "35 岁", title: "【35岁：看透一切的“提前养老人”】", tags: ["稳定", "务实", "少点内耗"], feature: "你会把注意力放在可持续的选择上：精力有限，就分给重要的人和事；关系值得，就好好沟通；一再消耗，就不必靠忍耐证明在乎。你不太需要热闹来确认自己过得不错，也不容易被别人展示出来的进度催着跑。偶尔，这份成熟也可能让你过早地说“算了”，把本来值得表达的期待一并收起来。", analysis: "你在用边界保护生活，这很珍贵；也可以留意，边界和防备有时只差一次诚实的表达。放下不合适的执念，不代表每次都要独自消化；选择平静，也不必假装自己什么都不在意。遇到重要的人和事，不妨先说清楚自己的需要，再决定是否继续投入。真正的通透不是没有波澜，而是知道哪些波澜值得回应。", quote: "“不是没脾气了，是终于知道什么值得我费力气。”" },
+  age60: { age: "60 岁", title: "【60岁：无所畏惧的“大肚佛系老灵魂”】", tags: ["松弛", "通透", "主打随缘"], feature: "你对不可控的事不再过度追赶，更愿意把时间还给睡眠、舒服的相处和眼前的小确幸。你明白计划会变、评价会过期，很多事情不值得拿整晚的心情去交换。需要留心的是，休息和回避有时看起来很像：如果一句“随便吧”背后其实藏着失望，那个感受也值得被认真听见。", analysis: "你的松弛感来自一种重要的选择：不把所有事情都当成必须赢下的比赛。它能让你从比较和焦虑里抽身，但不必变成对愿望的静音。问问自己：这件事是真的不重要，还是我怕期待之后失望？如果仍然在乎，可以用轻一点的方式争取；如果已经不适合，也可以坦然告别。随缘不是把方向盘交出去，而是知道何时掌舵、何时安心看风景。", quote: "“世界尽管忙，我先把今天过舒服。”" }
+};
+const $=s=>document.querySelector(s), answers=Array(questionsData.length).fill(null);let current=0,advanceTimer;
+const emojis=["🌷","🍜","🫶","💬","🧩","📝","💌","🌙","🛍️","✨","🐷","🎁","💗","📱","🕊️","🌈","☕","🛤️","📦","🌛"];
+function showScreen(id){["start","quiz","result"].forEach(x=>$("#"+x).classList.toggle("hidden",x!==id));window.scrollTo({top:0,behavior:"smooth"})}
+function renderQuestion(){const q=questionsData[current];$("#qCount").textContent=`QUESTION ${String(current+1).padStart(2,"0")} / 20`;
+const pct=Math.round((current+1)/questionsData.length*100);$("#percent").textContent=pct+"%";$("#progress").style.width=pct+"%";$("#question").textContent=q.text;$("#qEmoji").textContent=emojis[current];$("#hint").textContent="";
+$("#options").innerHTML=q.options.map((o,i)=>`<button type="button" class="option flex w-full items-center gap-3 rounded-2xl border-2 ${answers[current]===i?"selected":"border-white bg-white/70"} px-4 py-3 text-left" data-index="${i}" aria-pressed="${answers[current]===i}"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl ${answers[current]===i?"bg-gradient-to-br from-orange-300 to-pink-400 text-white":"bg-purple-50 text-purple-600"} text-sm font-black">${"ABC"[i]}</span><span class="text-sm font-semibold leading-6 text-slate-700 sm:text-base">${o.label.slice(3)}</span>${answers[current]===i?'<i class="fa-solid fa-circle-check ml-auto text-lg text-pink-500"></i>':""}</button>`).join("");
+$("#options").querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>selectAnswer(Number(b.dataset.index))));$("#prevBtn").disabled=current===0;$("#prevBtn").classList.toggle("opacity-40",current===0);updateNext()}
+function updateNext(){const b=$("#nextBtn"),last=current===questionsData.length-1;b.disabled=answers[current]===null;b.innerHTML=last?'查看结果 <i class="fa-solid fa-sparkles ml-2"></i>':'下一题 <i class="fa-solid fa-arrow-right ml-2"></i>';b.className="btn min-h-12 rounded-xl px-6 font-extrabold transition "+(b.disabled?"cursor-not-allowed bg-slate-200 text-slate-400":"bg-gradient-to-r from-[#ff8a69] to-[#ec70a5] text-white shadow-md hover:-translate-y-0.5")}
+function selectAnswer(i){clearTimeout(advanceTimer);advanceTimer=null;answers[current]=i;renderQuestion();if(current===questionsData.length-1){$("#hint").textContent="最后一题已选好，点击“查看结果”生成你的专属报告。";return}advanceTimer=setTimeout(()=>{advanceTimer=null;if(current<questionsData.length-1){current++;renderQuestion()}},300)}
+let currentResultData=null;
+function finish(){if(answers.some(answer=>answer===null))return;const total=answers.reduce((sum,index,qi)=>sum+questionsData[qi].options[index].score,0);const key=total<=28?"age18":total<=39?"age25":total<=50?"age35":"age60",r=resultsData[key];currentResultData=r;$("#age").textContent=r.age;$("#resultTitle").textContent=r.title;$("#tags").innerHTML=r.tags.map(t=>`<span class="rounded-full bg-pink-50 px-4 py-2 text-sm font-extrabold text-pink-600">#${t}</span>`).join("");$("#feature").textContent=r.feature;$("#analysis").textContent=r.analysis;$("#quote").textContent=r.quote;showScreen("result")}
+$("#startBtn").addEventListener("click",()=>{current=0;renderQuestion();showScreen("quiz")});$("#prevBtn").addEventListener("click",()=>{if(current>0){clearTimeout(advanceTimer);current--;renderQuestion()}});$("#nextBtn").addEventListener("click",()=>{if(answers[current]===null){$("#hint").textContent="先选一个最像你的答案吧～";return}if(current===questionsData.length-1)finish();else{clearTimeout(advanceTimer);current++;renderQuestion()}});
+function showCopyFallback(text){const old=$("#copyFallback");if(old)old.remove();const panel=document.createElement("div");panel.id="copyFallback";panel.className="fixed inset-x-4 bottom-4 z-50 mx-auto max-w-xl rounded-2xl border border-pink-100 bg-white p-4 shadow-2xl";panel.innerHTML='<div class="mb-2 flex items-center justify-between gap-3"><p class="text-sm font-bold text-slate-700">浏览器暂不支持自动复制，请长按下方文字并选择“复制”。</p><button type="button" class="min-h-11 rounded-xl px-3 text-sm font-bold text-purple-600" aria-label="关闭">关闭</button></div><textarea class="w-full rounded-xl border border-purple-100 bg-purple-50 p-3 text-sm leading-6 text-slate-700" rows="5" readonly></textarea>';document.body.append(panel);const area=panel.querySelector("textarea");area.value=text;area.focus();area.select();panel.querySelector("button").addEventListener("click",()=>panel.remove())}
+async function copyText(text){try{if(!navigator.clipboard||!navigator.clipboard.writeText)throw new Error("Clipboard API unavailable");await navigator.clipboard.writeText(text);const t=$("#toast");t.textContent="复制成功，快去分享吧 ✨";t.classList.remove("opacity-0");setTimeout(()=>t.classList.add("opacity-0"),1800)}catch(e){showCopyFallback(text)}}
+$("#copyQuote").addEventListener("click",()=>copyText($("#quote").textContent));$("#copyResult").addEventListener("click",()=>{const tags=currentResultData?currentResultData.tags.map(tag=>`#${tag}`).join(" "):"";copyText(`我的心理年龄是 ${$("#age").textContent}！${$("#resultTitle").textContent}\n${tags}\n🌟 性格特点：${$("#feature").textContent}\n💡 心理状态：${$("#analysis").textContent}\n${$("#quote").textContent}\n来测测你的灵魂几岁了？`)});$("#restart").addEventListener("click",()=>{clearTimeout(advanceTimer);advanceTimer=null;answers.fill(null);current=0;currentResultData=null;showScreen("start")});
 </script></body></html>
